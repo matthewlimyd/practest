@@ -1,0 +1,118 @@
+.navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+
+body {
+    background-color: #070606;
+}
+
+.jumbotron {
+    font-family: "Times New Roman", serif;
+    background-color: #070606;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 80px;
+    text-decoration: underline overline;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+h4 {
+    color: #ffffff;
+}
+
+.container {
+    min-width: 200px;
+    max-width: 1000px;
+    padding: 40px;
+    margin-top: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    height: fit-content;
+    color: #ffffff;
+}
+
+.fade-in-image {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+th {
+  cursor: pointer;
+}
+
+.return_btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.login_btn {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.home_btn {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Helvetica", sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+}

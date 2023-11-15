@@ -1,0 +1,80 @@
+version: '3'
+
+services:
+  php:
+    container_name: php
+    build: 
+      context: . # php language and composer
+    volumes:
+      - ./src:/var/www/html
+    restart: always
+    networks:
+      - lemp-network
+
+  nginx:
+    container_name: nginx-webserver
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d # nginx config
+      - ./src:/var/www/html # web codes
+    restart: always
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - lemp-network
+
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./scripts:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    restart: always
+    ports:
+      - "3307:3306"
+    networks:
+      - lemp-network
+
+  git-server:
+    container_name: git-server
+    build:
+      dockerfile: gitserver.Dockerfile
+      context: .
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./repos:/var/www/git
+    networks:
+      - lemp-network
+
+  jenkins:
+    container_name: jenkins
+    build: ./jenkins
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins_home:/var/jenkins_home
+    networks:
+      - lemp-network
+
+    
+  
+networks:
+  lemp-network:
+    driver: bridge  
+
+volumes:
+  dbdata:
+  jenkins_data:
+    driver: local
