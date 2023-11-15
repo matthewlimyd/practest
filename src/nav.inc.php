@@ -25,6 +25,4 @@
     </div>
 </nav>
 
-<header class="jumbotron text-center">
-    <h1>ICT3203 Practical</h1>
-</header>
+
